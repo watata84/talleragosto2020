@@ -1,0 +1,23 @@
+---
+- hosts: centosgroup   
+
+  tasks:
+  - name: instalacion de paquete de postfix
+    yum:
+     name: postfix
+     state: present
+    become: yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+...
