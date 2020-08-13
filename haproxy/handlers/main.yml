@@ -1,0 +1,16 @@
+---
+- name: Reinciar el firewall
+  service:
+    name: firewalld
+    state: reloaded
+- name: Reiniciar Haproxy
+  service:
+    name: haproxy
+    state: reloaded
+
+
+
+
+
+
+# handlers file for haproxy

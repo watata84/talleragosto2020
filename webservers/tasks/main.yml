@@ -1,0 +1,48 @@
+---
+
+- name: instalar la ultima version de Apache en CentOS
+  yum: name=httpd state=latest
+  when: ansible_os_family == "RedHat"
+
+- name: instalar la ultima version de Apache en Ubuntu
+  apt: name=apache2 state=latest
+  when: ansible_os_family == "Debian"
+
+- name: Levantar Servicio httpd
+  service: name=httpd state=started
+  when: ansible_os_family == "RedHat"
+
+- name: Levantar Servicios Apache2
+  service: name=apache2 state=started
+  when: ansible_os_family == "Debian"
+
+- name: Abrir puertos http y https
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  loop:
+    - http
+    - https
+  when: ansible_os_family == "RedHat"
+  notify:
+  - name: Reiniciar el firewall
+
+- name: Permitir puertos 80 y 443 en Ubuntu
+  ufw:
+    rule: allow
+    port: '80,443'
+    proto: tcp
+  when: ansible_os_family == "Debian"
+
+
+
+
+
+
+
+
+
+
+
+# tasks file for webservers

@@ -1,0 +1,10 @@
+---
+- name: Reiniciar el firewall
+  service:
+    name: firewalld
+    state: restarted
+
+...
+
+
+# handlers file for webservers

@@ -1,0 +1,31 @@
+---
+- name: Instalacion de HAproxy
+  yum:
+    name: '{{ paquetes }}'
+    state: present
+
+- name: template de haproxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: Reiniciar Haproxy
+
+- name: Levantar Servicio
+  service:
+    name: haproxy
+    state: started
+
+- name: Abrir puertos http y https
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  loop:
+    - http
+    - https
+  notify: Reinciar el firewall
+
+
+
+
+# tasks file for haproxy
