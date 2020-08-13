@@ -2,8 +2,8 @@
 - hosts: ubuntus
   become: true
   vars:
-    server1: 192.168.0.194
-    server2: 192.168.0.194      
+    server1: http://192.168.0.194
+    server2: http://192.168.0.194      
   tasks:
   - name: Instalacion de Proxy Reverso y balanceador de carga
     apt:
@@ -13,10 +13,7 @@
     service:
       name: apache2      
       state: started
-  
-  
-  
-    #- name: template de haproxy
-      #template:
-      #src: ../haproxy.cfg.j2
-      #dest: /etc/haproxy/haproxy.cfg
+  - name: template de haproxy
+    template:
+      src: ../apache2.conf.j2
+      dest: /etc/apache2/sites-enabled/000-default.conf
