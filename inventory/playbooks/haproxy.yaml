@@ -2,10 +2,10 @@
 - hosts: ubuntus
   become: true
   vars:
-    server1: 10.20.1.98
-    server2: 20.32.34.12      
+    server1: 10.30.1.100
+    server2: 10.30.1.200      
   tasks:
-  - name: Instalacion de apache
+  - name: Instalacion de Proxy Reverso y balanceador de carga
     apt:
       name: haproxy
       state: present
