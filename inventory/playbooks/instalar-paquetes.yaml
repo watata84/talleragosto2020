@@ -28,39 +28,5 @@
     service: 
       name: firewalld 
       state: restarted    
-  - name: Escribir configuracion de apache
-      template:
-        src: postfix-main.cf.j2
-        dest: /etc/postfix/main.cf
-      #notify:
-      #- name: reinicio postfix
-      # handlers:
-      # - name: reloaded dovecot
-      #service:
-      # name: dovecot
-      # state: reloaded
-      # enabled: yes
-      #- name: reloaded apache2
-      #service:
-      # name: apache2
-      # state: reloaded
-      # enabled: yes
-    # name: reinicio postfix
-    # service:
-    #   name: postfix
-    #   state: restarted
-    #   enabled: yes
-
-
-
-
-
-
-
-
-
-
-
-
 
 ...

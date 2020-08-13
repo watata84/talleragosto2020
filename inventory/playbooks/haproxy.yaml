@@ -1,0 +1,34 @@
+---
+- hosts: centos196
+  become: true
+  vars:
+    server1: 192.168.0.194:80
+    server2: 192.168.0.198:80
+    paquetes:
+      - haproxy
+  tasks:
+  - name: Instalacion de HAproxy
+    yum:
+      name: '{{ paquetes }}'
+      state: present
+  - name: template de haproxy
+    template:
+      src: ../haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+  - name: Levantar Servicio
+    service:
+      name: haproxy
+      state: started
+  - name: Abrir puertos http y https
+    firewalld:
+      service: "{{ item }}"
+      permanent: true
+      state: enabled
+    loop:
+      - http
+      - https
+  - name: Reinciar el firewall
+    service:
+      name: firewalld
+      state: reloaded
+

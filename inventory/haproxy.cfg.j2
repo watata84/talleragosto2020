@@ -1,0 +1,23 @@
+global
+    daemon
+    maxconn 256
+    user    haproxy
+    group   haproxy
+    log     127.0.0.1       local0
+    log     127.0.0.1       local1  notice
+
+defaults
+    mode    http
+    log     global
+    timeout connect 5000ms
+    timeout client  50000ms
+    timeout server  50000ms
+
+listen granja_cda
+    bind *:80
+    mode http
+    stats enable
+    stats auth  cda:cda
+    balance roundrobin
+    server uno {{ server1 }} maxconn 128
+    server dos {{ server2 }} maxconn 128
