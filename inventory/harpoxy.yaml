@@ -1,0 +1,10 @@
+---
+- hosts: ubuntus
+  become_user: ansible
+  become: true
+  tasks:
+  - name: Instalacion de apache
+    apt:
+      name: haproxy
+      state: present
+

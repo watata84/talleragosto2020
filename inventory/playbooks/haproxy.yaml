@@ -1,0 +1,15 @@
+---
+- hosts: ubuntus
+  become: true
+  vars:
+    server1: 10.20.1.98
+    server2: 20.32.34.12      
+  tasks:
+  - name: Instalacion de apache
+    apt:
+      name: haproxy
+      state: present
+  - name: poner servidores
+    template:
+      src: ../haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
