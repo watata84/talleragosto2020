@@ -1,5 +1,5 @@
 ---
-- hosts: centos196
+- hosts: haproxy
   become: true
   vars:
     server1: 192.168.0.194:80
