@@ -36,36 +36,6 @@
     state: enabled
   when: ansible_os_family == "Debian"
 
-- name: Crear Directorios
-  file:
-    path: /var/www/html/demo.com
-    state: directory
-  when: ansible_os_family == "RedHat"
-
-- name: Copia de archivos para servidor
-#  copy:
-#    src: /index.html
-#    dest: /var/www/html
-#    src: /index.demo.html
-#    dest: /var/www/html/demo.com
-#    src: demo.com.conf
-#    dest: /etc/httpd/conf.d
-#  when: ansible_os_family == "RedHat"
-
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  with_items:
-    - { src: 'demo.com.conf',dest: '/etc/httpd/conf.d'}
-    - { src: 'index.html',dest: '/var/www/html'}
-    - { src: '/root/repos/playbook/webservers/files/demo/index.html',dest: '/var/www/html/demo.com'}
-  when: ansible_os_family == "RedHat"
-
-
-
-
-
-
 
 
 # tasks file for webservers
