@@ -1,19 +1,28 @@
 ## Playbook de Taller 2020
 
+
+Webservers y HAProxy
 En este repositorio encontraras los playbooks necesarios para poder montar 2 servidores Apache (Centos o Ubuntu) y un servidor que funcionara como Proxy Reverso y balanceador de carga
 
-Se separan en 2 playbooks diferentes (WEBSERVERS Y HAPROXY) para poder tener mas opciones de modificacion
+Se separan en 2 Playbooks diferentes (WEBSERVERS Y HAPROXY) para poder tener más opciones de modificación
 
-En la carpeta inventory se encuentra el archivo hosts.ini el cual tendras que modificar de acuerdo a tus requerimientos
+Requerimientos
+Para poder implementar correctamente estos Roles deberá contar con 3 servidores Linux (2 para el sistema apache y otro para el balanceador de carga y proxy reverso
+
+Variables de los Roles
+Como variantes deberá cambiar en el archivo /inventori/hosts.ini por los servidores de su infraestructura
+Y deberá especificar las direcciones ip de los servidores a balancear para el rol de haproxy (/haproxy/vars/main.yaml)
 
 
-Pare ejcutarlos solo deberas ejecutar los siguientes comandos:
+Ejemplos de Ejecución
+
+Pare ejecutarlos solo ejecuta los siguientes comandos:
 
 ansible-playbook servers-apache.yaml -i inventory/hosts.ini
 
 ansible-playbook haproxy.yaml -i inventory/hosts.ini
 
 
-Aqui podras ver el diagrama de red de nuestra infraestructura
+Aquí podrás ver el diagrama de red de nuestra infraestructura
 
 ![Screenshot](estructura.jpg)
