@@ -9,6 +9,7 @@ En la carpeta inventory se encuentra el archivo hosts.ini el cual tendras que mo
 Pare ejcutarlos solo deberas ejecutar los siguientes comandos:
 
 ansible-playbook servers-apache.yaml -i inventory/hosts.ini
+
 ansible-playbook haproxy.yaml -i inventory/hosts.ini
 
 
