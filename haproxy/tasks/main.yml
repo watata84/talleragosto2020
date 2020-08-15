@@ -1,8 +1,15 @@
 ---
-- name: Instalacion de HAproxy
+- name: Instalacion de HAproxy en Centos
   yum:
     name: '{{ paquetes }}'
     state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Instalacion de HAproxy en Ubuntu
+  apt:
+    name: '{{ paquetes }}'
+    state: present
+  when: ansible_os_family == "Debian"
 
 - name: template de haproxy
   template:
@@ -25,7 +32,13 @@
     - https
   notify: Reinciar el firewall
 
-
+- name: Permitir puertos 80, 443 y 22 en Ubuntu
+  ufw:
+    rule: allow
+    port: '80,443,22'
+    proto: tcp
+    state: enabled
+  when: ansible_os_family == "Debian"
 
 
 # tasks file for haproxy
