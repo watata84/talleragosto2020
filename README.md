@@ -13,7 +13,7 @@ Para poder implementar correctamente estos Roles deberá contar con 3 servidores
 
 Variables de los Roles
 
-Como variantes deberá cambiar en el archivo /inventori/hosts.ini por los servidores de su infraestructura
+Como variantes deberá cambiar en el archivo /inventory/hosts.ini por los servidores de su infraestructura
 Y deberá especificar las direcciones ip de los servidores a balancear para el rol de haproxy (/haproxy/vars/main.yaml)
 
 
