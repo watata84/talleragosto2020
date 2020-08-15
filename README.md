@@ -21,10 +21,13 @@ Ejemplos de Ejecución
 
 Pare ejecutarlos solo ejecuta los siguientes comandos:
 
+
+```bash
 ansible-playbook servers-apache.yaml -i inventory/hosts.ini
-
+```
+```bash
 ansible-playbook haproxy.yaml -i inventory/hosts.ini
-
+```
 
 Aquí podrás ver el diagrama de red de nuestra infraestructura
 
