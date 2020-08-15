@@ -6,9 +6,9 @@ Se separan en 2 playbooks diferentes (WEBSERVERS Y HAPROXY) para poder tener mas
 En la carpeta inventory se encuentra el archivo hosts.ini el cual tendras que modificar de acuerdo a tus requerimientos
 
 
-Pare ejcutarlos solo deberas ejecutar el siguiente comando
-ansible-playbook servers-apache.yaml -i inventory/hosts.ini
+Pare ejcutarlos solo deberas ejecutar los siguientes comandos:
 
+ansible-playbook servers-apache.yaml -i inventory/hosts.ini
 ansible-playbook haproxy.yaml -i inventory/hosts.ini
 
 
