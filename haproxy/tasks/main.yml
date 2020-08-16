@@ -21,6 +21,7 @@
   service:
     name: haproxy
     state: started
+    enabled: yes
 
 - name: Abrir puertos http y https
   firewalld:
