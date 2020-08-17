@@ -51,17 +51,23 @@
     - { src: '/root/repos/playbook/webservers/files/demo/index.html',dest: '/var/www/html/demo.com'}
   when: ansible_os_family == "RedHat"
 
-#- name: Copia de archivos para servidor Ubuntu
-#  copy:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#  with_items:
-#    - { src: 'demo.com.conf',dest: '/etc/apache2/conf-available'}
-#    - { src: 'index.html',dest: '/var/www/html'}
-#    - { src: '/root/repos/playbook/webservers/files/demo/index.html',dest: '/var/www/html/demo.com'}
-#  when: ansible_os_family == "Debian"
+- name: Copia de archivos para servidor Ubuntu
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'demo.com.conf',dest: '/etc/apache2/conf-available'}
+    - { src: 'index.html',dest: '/var/www/html'}
+    - { src: '/root/repos/playbook/webservers/files/demo/index.html',dest: '/var/www/html/demo.com'}
+  when: ansible_os_family == "Debian"
+
+# Prueba de correr otro rol
+#- name: Run tasks/other.yaml instead of 'main'
+#  import_role:
+#    name: haproxy
+
+
 
 
 ...
-
 # tasks file for webservers
