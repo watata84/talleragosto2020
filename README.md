@@ -5,7 +5,7 @@
 
 En este repositorio encontraras los playbooks necesarios para poder montar 2 servidores Apache (Centos o Ubuntu) y un servidor que funcionara como Proxy Reverso y balanceador de carga
 
-Se separan en 2 Playbooks diferentes (WEBSERVERS Y HAPROXY) para poder tener más opciones de modificación
+Se separan en 2 Roles diferentes (WEBSERVERS Y HAPROXY) para poder tener más opciones de modificación
 
 ## Requerimientos
 

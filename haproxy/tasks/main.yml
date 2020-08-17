@@ -1,4 +1,5 @@
 ---
+
 - name: Instalacion de HAproxy en Centos
   yum:
     name: '{{ paquetes }}'
